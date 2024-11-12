@@ -1,35 +1,35 @@
-import { CairnActor } from "./actor/actor.js";
+import { WyrmActor } from "./actor/actor.js";
 import {
   compendiumInfoFromString, drawTableItem,
   drawTableText, findCompendiumItem,
 } from './compendium.js'
-import { Cairn } from "./config.js";
+import { Wyrm } from "./config.js";
 import { evaluateFormula, formatString } from './utils.js'
 
 /**
- * @returns {Promise.<CairnActor>}
+ * @returns {Promise.<WyrmActor>}
  */
 export const createCharacter = async () => createActorWithCharacter(await generateCharacter());
 
 /**
- * @param {CairnActor} actor
- @returns {Promise.<CairnActor>}
+ * @param {WyrmActor} actor
+ @returns {Promise.<WyrmActor>}
  */
 export const regenerateActor = async (actor)  => updateActorWithCharacter(actor, await generateCharacter());
 
 /**
  * @param {Object} characterData
- * @returns {Promise.<CairnActor>}
+ * @returns {Promise.<WyrmActor>}
  */
 export const createActorWithCharacter = async (characterData) => {
   const data = characterToActorData(characterData);
-  return CairnActor.create(data);
+  return WyrmActor.create(data);
 };
 
 /**
- * @param {CairnActor} actor
+ * @param {WyrmActor} actor
  * @param {Object} characterData
- @returns {Promise.<CairnActor>}
+ @returns {Promise.<WyrmActor>}
  */
 export const updateActorWithCharacter = async (actor, characterData) => {
   const data = characterToActorData(characterData);
@@ -62,7 +62,7 @@ export const rollTextItems = async (items) => {
 
 /**
  * @param {Object} items
- @return {Promise<CairnItem[]>}
+ @return {Promise<WyrmItem[]>}
  */
 export const rollItems = async (items) => {
   const result = [];
@@ -124,13 +124,13 @@ export const rollBiography = async (config) => formatString(config.text,{
 
 /**
  * @param {Object} items
- * @returns {Promise.<CairnItem[]>}
+ * @returns {Promise.<WyrmItem[]>}
  */
 export const rollStartingGear = async (items) => rollItems(items);
 
 /**
  * @param {Object} items
- * @return {Promise<CairnItem[]>}
+ * @return {Promise<WyrmItem[]>}
  */
 export const findStartingItems = async (items) => {
   const result = [];
@@ -152,7 +152,7 @@ export const findStartingItems = async (items) => {
 export const generateCharacter = async () => {
   console.log(`Creating new character`);
 
-  const characterGenerator = Cairn.characterGenerator;
+  const characterGenerator = Wyrm.characterGenerator;
 
   const abilities = await rollAbilities(characterGenerator.ability);
   const hp = await rollHitProtection(characterGenerator.hitProtection);

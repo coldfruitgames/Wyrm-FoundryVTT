@@ -1,54 +1,54 @@
 {{#if withFatigue}}
-<div class="cairn-items-list-header">
+<div class="wyrm-items-list-header">
     {{#if data.system.hasGoldThreshold}}
-      <div class="grey-comment">{{ localize 'CAIRN.Settings.UseGoldThreshold.message'}} ({{data.system.goldSlots}})</div>
+      <div class="grey-comment">{{ localize 'WYRM.Settings.UseGoldThreshold.message'}} ({{data.system.goldSlots}})</div>
     {{/if}}
     <div class="end">
-      <a class="item-control remove-fatigue" title="{{ localize 'CAIRN.RemoveFatigue' }}"><i class="fas fa-minus"></i></a>
-      {{ localize 'CAIRN.Fatigue' }}
-      <a class="item-control add-fatigue" title="{{ localize 'CAIRN.AddFatigue' }}"><i class="fas fa-plus "></i></a>  
+      <a class="item-control remove-fatigue" title="{{ localize 'WYRM.RemoveFatigue' }}"><i class="fas fa-minus"></i></a>
+      {{ localize 'WYRM.Fatigue' }}
+      <a class="item-control add-fatigue" title="{{ localize 'WYRM.AddFatigue' }}"><i class="fas fa-plus "></i></a>  
     </div>
 </div>
 {{/if}}
-<div class="cairn-items-list-header">
-    <div>{{ localize 'CAIRN.Name' }} <i>{{ localize 'CAIRN.BoldMeanEquipped' }}</i></div>
-    <a class="item-control item-create" title="{{ localize 'CAIRN.CreateItem' }}" data-type="item"><i class="fas fa-plus"></i>&nbsp;{{ localize 'CAIRN.AddItem' }}</a>
+<div class="wyrm-items-list-header">
+    <div>{{ localize 'WYRM.Name' }} <i>{{ localize 'WYRM.BoldMeanEquipped' }}</i></div>
+    <a class="item-control item-create" title="{{ localize 'WYRM.CreateItem' }}" data-type="item"><i class="fas fa-plus"></i>&nbsp;{{ localize 'WYRM.AddItem' }}</a>
 </div>
 {{#each data.items as |item id|}}
-<div class="cairn-items-list-row" data-item-id="{{item._id}}">
-    <div class="cairn-items-list-row-header">
-        <div class="cairn-item-name-and-tags">
-            <a class="cairn-item-title">
+<div class="wyrm-items-list-row" data-item-id="{{item._id}}">
+    <div class="wyrm-items-list-row-header">
+        <div class="wyrm-item-name-and-tags">
+            <a class="wyrm-item-title">
                 {{#markItemUsed item}}
                 {{#boldIf item.system.equipped}}{{item.name}}{{/boldIf}}
                 {{/markItemUsed}}
             </a>
             {{#if item.system.blast}}
-            <div class="cairn-item-tag">{{ localize 'CAIRN.Blast' }}</div>
+            <div class="wyrm-item-tag">{{ localize 'WYRM.Blast' }}</div>
             {{/if}}
             {{#if item.system.armor}}
-            <span class="cairn-item-tag">{{ localize 'CAIRN.Armor' }} {{item.system.armor}}</span>
+            <span class="wyrm-item-tag">{{ localize 'WYRM.Armor' }} {{item.system.armor}}</span>
             {{/if}}
             {{#if item.system.damageFormula}}
-            <div class="cairn-item-tag">{{item.system.damageFormula}} {{ localize 'CAIRN.Damage' }}</div>
+            <div class="wyrm-item-tag">{{item.system.damageFormula}} {{ localize 'WYRM.Damage' }}</div>
             {{/if}}
             {{#if item.system.bulky}}
-            <div class="cairn-item-tag">{{ localize 'CAIRN.Bulky' }}</div>
+            <div class="wyrm-item-tag">{{ localize 'WYRM.Bulky' }}</div>
             {{/if}}
             {{#if item.system.criticalDamage}}
-            <div class="cairn-item-tag">{{ localize 'CAIRN.CriticalDamage' }}</div>
+            <div class="wyrm-item-tag">{{ localize 'WYRM.CriticalDamage' }}</div>
             {{/if}}
             {{#if item.system.weightless}}
-            <div class="cairn-item-tag">{{ localize 'CAIRN.Weightless' }} {{item.system.quantity}} </div>
+            <div class="wyrm-item-tag">{{ localize 'WYRM.Weightless' }} {{item.system.quantity}} </div>
             {{else}}
             {{#if (gt item.system.quantity 1)}}
-            <div class="cairn-item-tag">{{ localize 'CAIRN.Quantity' }} {{item.system.quantity}} </div>  
+            <div class="wyrm-item-tag">{{ localize 'WYRM.Quantity' }} {{item.system.quantity}} </div>  
             {{/if}}
             {{/if}}
             
 
             {{#unless item.system.weightless}}
-            <div class="cairn-item-uses">
+            <div class="wyrm-item-uses">
               {{#times item.system.uses.max}}
                 {{#if (gt item.system.uses.value @index)}}
                   <i class="fa-solid fa-circle"></i>
@@ -61,12 +61,12 @@
 
         </div>
         
-        <div class="cairn-item-controls">
+        <div class="wyrm-item-controls">
             {{#if item.system.hasPlusMinus}}                        
-              <a class="item-control item-remove-quantity" title="{{localize 'CAIRN.ItemRemoveQuantity'}}" style="margin-right: 4px">
+              <a class="item-control item-remove-quantity" title="{{localize 'WYRM.ItemRemoveQuantity'}}" style="margin-right: 4px">
                 <i class="fas fa-minus"></i>
               </a>
-              <a class="item-control item-add-quantity" title="{{localize 'CAIRN.ItemAddQuantity'}}"  style="margin-right: 4px">
+              <a class="item-control item-add-quantity" title="{{localize 'WYRM.ItemAddQuantity'}}"  style="margin-right: 4px">
                   <i class="fas fa-plus"></i>
               </a>
             {{/if}}
@@ -74,20 +74,20 @@
             {{#if item.system.equipped}}
               {{#if item.system.damageFormula}}
                 <a class="roll-control" data-label="{{item.name}}" data-roll="{{item.system.damageFormula}}"
-                    title="{{ localize 'CAIRN.RollDamage' }}">
+                    title="{{ localize 'WYRM.RollDamage' }}">
                     <i class="fas fa-dice-d20"></i>
                 </a>
               {{/if}}
             {{/if}}
 
             {{#if item.system.isEquipable}}   
-              <a class="item-control item-toggle-equipped {{ifPrint item.system.equipped 'equipped'}}" title="{{ifPrintElse item.system.equipped (localize 'CAIRN.ItemUnequip') (localize 'CAIRN.ItemEquip')}}">
+              <a class="item-control item-toggle-equipped {{ifPrint item.system.equipped 'equipped'}}" title="{{ifPrintElse item.system.equipped (localize 'WYRM.ItemUnequip') (localize 'WYRM.ItemEquip')}}">
                 <i class="fas fa-hand-paper"></i>
               </a>
             {{/if}}        
 
-            <a class="item-control item-edit" title="{{ localize 'CAIRN.EditItem' }}"><i class="fas fa-edit"></i></a>
-            <a class="item-control item-delete" title="{{ localize 'CAIRN.DeleteItem' }}"><i class="fas fa-trash"></i></a>
+            <a class="item-control item-edit" title="{{ localize 'WYRM.EditItem' }}"><i class="fas fa-edit"></i></a>
+            <a class="item-control item-delete" title="{{ localize 'WYRM.DeleteItem' }}"><i class="fas fa-trash"></i></a>
         </div>
     </div>
 </div>

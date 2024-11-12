@@ -5,12 +5,12 @@ import { evaluateFormula, getInfoFromDropData, stripPar } from '../utils.js'
  * Extend the basic ActorSheet with some very simple modifications
  * @extends {ActorSheet}
  */
-export class CairnActorSheet extends ActorSheet {
+export class WyrmActorSheet extends ActorSheet {
   /** @override */
   static get defaultOptions() {
     return foundry.utils.mergeObject(super.defaultOptions, {
-      classes: ["cairn", "sheet", "actor"],
-      template: "systems/cairn/templates/actor/actor-sheet.html",
+      classes: ["wyrm", "sheet", "actor"],
+      template: "systems/wyrm/templates/actor/actor-sheet.html",
       width: 500,
       height: 640,
       tabs: [
@@ -20,12 +20,12 @@ export class CairnActorSheet extends ActorSheet {
           initial: "items",
         },
       ],
-      dragDrop: [{ dragSelector: ".cairn-items-list-row", dropSelector: null }],
+      dragDrop: [{ dragSelector: ".wyrm-items-list-row", dropSelector: null }],
     });
   }
 
   get template() {
-    const path = "systems/cairn/templates/actor";
+    const path = "systems/wyrm/templates/actor";
     return `${path}/${this.actor.type}-sheet.html`;
   }
 
@@ -67,7 +67,7 @@ export class CairnActorSheet extends ActorSheet {
 
     // Update inventory item
     html.find(".item-edit").click((ev) => {
-      const li = $(ev.currentTarget).parents(".cairn-items-list-row");
+      const li = $(ev.currentTarget).parents(".wyrm-items-list-row");
       if (li.data("isContainer")) {
         const item = this.actor.getOwnedContainer(li.data("itemId"));
         item.sheet.render(true);
@@ -79,7 +79,7 @@ export class CairnActorSheet extends ActorSheet {
 
     // Delete inventory item
     html.find(".item-delete").click((ev) => {
-      const li = $(ev.currentTarget).parents(".cairn-items-list-row");
+      const li = $(ev.currentTarget).parents(".wyrm-items-list-row");
       if (li.data("isContainer")) {
         this.actor.deleteOwnedContainer(li.data("itemId"));
       } else {
@@ -89,13 +89,13 @@ export class CairnActorSheet extends ActorSheet {
     });
 
     html.find(".item-toggle-equipped").click((ev) => {
-      const li = $(ev.currentTarget).parents(".cairn-items-list-row");
+      const li = $(ev.currentTarget).parents(".wyrm-items-list-row");
       const item = this.actor.getOwnedItem(li.data("itemId"));
       item.update({ 'system.equipped': !item.system.equipped });
     });
 
     html.find(".item-add-quantity").click((ev) => {
-      const li = $(ev.currentTarget).parents(".cairn-items-list-row");
+      const li = $(ev.currentTarget).parents(".wyrm-items-list-row");
       const item = this.actor.getOwnedItem(li.data("itemId"));
       if (item.system.weightless) {
         item.update({ 'system.quantity': item.system.quantity + 1 });
@@ -105,7 +105,7 @@ export class CairnActorSheet extends ActorSheet {
     });
 
     html.find(".item-remove-quantity").click((ev) => {
-      const li = $(ev.currentTarget).parents(".cairn-items-list-row");
+      const li = $(ev.currentTarget).parents(".wyrm-items-list-row");
       const item = this.actor.getOwnedItem(li.data("itemId"));
       if (item.system.weightless) {
         item.update({ 'system.quantity': Math.max(item.system.quantity - 1, 0) });
@@ -145,14 +145,14 @@ export class CairnActorSheet extends ActorSheet {
     });
 
     html
-      .find(".cairn-item-title")
+      .find(".wyrm-item-title")
       .click((event) => this._onItemDescriptionToggle(event));
 
     html.find("#die-of-fate-button").click(async () => {
       const roll = await evaluateFormula("1d6");
       roll.toMessage({
         speaker: ChatMessage.getSpeaker({ actor: this.actor }),
-        flavor: game.i18n.localize("CAIRN.DieOfFate"),
+        flavor: game.i18n.localize("WYRM.DieOfFate"),
       });
     });
 
@@ -167,16 +167,16 @@ export class CairnActorSheet extends ActorSheet {
    */
   async _onItemCreate(event) {
     event.preventDefault();
-    const template = "systems/cairn/templates/dialog/add-item-dialog.html";
+    const template = "systems/wyrm/templates/dialog/add-item-dialog.html";
     const content = await renderTemplate(template);
 
     new Dialog({
-      title: game.i18n.localize("CAIRN.CreateItem"),
+      title: game.i18n.localize("WYRM.CreateItem"),
       content,
       buttons: {
         create: {
           icon: '<i class="fas fa-check"></i>',
-          label: game.i18n.localize("CAIRN.CreateItem"),
+          label: game.i18n.localize("WYRM.CreateItem"),
           callback: (html) => {
             const form = html[0].querySelector("form");
             if (form.itemname.value.trim() !== '') {
@@ -200,16 +200,16 @@ export class CairnActorSheet extends ActorSheet {
    */
   async _onContainerCreate(event) {
     event.preventDefault();
-    const template = "systems/cairn/templates/dialog/add-container-dialog.html";
+    const template = "systems/wyrm/templates/dialog/add-container-dialog.html";
     const content = await renderTemplate(template);
 
     new Dialog({
-      title: game.i18n.localize("CAIRN.CreateContainer"),
+      title: game.i18n.localize("WYRM.CreateContainer"),
       content,
       buttons: {
         create: {
           icon: '<i class="fas fa-check"></i>',
-          label: game.i18n.localize("CAIRN.CreateContainer"),
+          label: game.i18n.localize("WYRM.CreateContainer"),
           callback: async (html) => {
             const form = html[0].querySelector("form");
             if (form.itemname.value.trim() !== '') {
@@ -236,12 +236,12 @@ export class CairnActorSheet extends ActorSheet {
   async _onAddFatigue(event) {
     event.preventDefault();
     if (this.actor.isEncumbered()) {
-      ui.notifications.warn(game.i18n.localize("CAIRN.Notify.MaxSlotsOccupied"));
+      ui.notifications.warn(game.i18n.localize("WYRM.Notify.MaxSlotsOccupied"));
       return;
     }
 
     this.actor.createOwnedItem({
-      name: game.i18n.localize("CAIRN.Fatigue"),
+      name: game.i18n.localize("WYRM.Fatigue"),
       type: 'item'
     });
   }
@@ -256,7 +256,7 @@ export class CairnActorSheet extends ActorSheet {
 
     // Find a fatigue to delete
     const fatigues = this.actor.items
-      .filter(i => i.name === game.i18n.localize("CAIRN.Fatigue"));
+      .filter(i => i.name === game.i18n.localize("WYRM.Fatigue"));
 
     if (fatigues.length > 0) {
       const fatigue = fatigues[0];
@@ -274,16 +274,16 @@ export class CairnActorSheet extends ActorSheet {
     const element = event.currentTarget;
     const dataset = element.dataset;
     if (dataset.roll) {
-      const usePanic = game.settings.get("cairn", "use-panic");
+      const usePanic = game.settings.get("wyrm", "use-panic");
       let panicLabel = "";
       if (usePanic && this.actor.system.panicked) {
         dataset.roll = "1d4"; // panicked character
-        panicLabel = "(" + game.i18n.localize("CAIRN.RollingWithPanic") + ")";
+        panicLabel = "(" + game.i18n.localize("WYRM.RollingWithPanic") + ")";
       }
 
       const roll = await evaluateFormula(dataset.roll, this.actor.getRollData());
       const label = dataset.label ?
-        game.i18n.localize("CAIRN.RollingDmgWith") + ` ${dataset.label} ` + panicLabel : "";
+        game.i18n.localize("WYRM.RollingDmgWith") + ` ${dataset.label} ` + panicLabel : "";
 
       const targetedTokens = Array.from(game.user.targets).map(t => t.id);
 
@@ -308,14 +308,14 @@ export class CairnActorSheet extends ActorSheet {
   }
 
   _buildDamageRollMessage(label, targetIds) {
-    const rollMessageTpl = 'systems/cairn/templates/chat/dmg-roll-card.html';
+    const rollMessageTpl = 'systems/wyrm/templates/chat/dmg-roll-card.html';
     const tplData = { label: label, targets: targetIds };
     return renderTemplate(rollMessageTpl, tplData);
   }
 
   _onItemDescriptionToggle(event) {
     event.preventDefault();
-    const boxItem = $(event.currentTarget).parents(".cairn-items-list-row");
+    const boxItem = $(event.currentTarget).parents(".wyrm-items-list-row");
     const isContainer = boxItem.data("isContainer");
     if (isContainer) {
       this._prepareContainerDescription(boxItem);
@@ -351,7 +351,7 @@ export class CairnActorSheet extends ActorSheet {
       const desc = stripPar(item.system.description);
       let crit = "";
       if (item.system.criticalDamage && stripPar(item.system.criticalDamage) !== "")
-        crit = '<br/><span class="weapon-desc-divider">' + game.i18n.localize("CAIRN.CriticalDamage") + ': ' + stripPar(item.system.criticalDamage) + '</span>';
+        crit = '<br/><span class="weapon-desc-divider">' + game.i18n.localize("WYRM.CriticalDamage") + ': ' + stripPar(item.system.criticalDamage) + '</span>';
       const div = $(
         `<div class="item-description">${desc}${crit}</div>`
       );
@@ -367,9 +367,9 @@ export class CairnActorSheet extends ActorSheet {
     const dataset = element.dataset;
     if (dataset.roll) {
       const roll = await evaluateFormula(dataset.roll, this.actor.getRollData());
-      const label = dataset.label ? game.i18n.localize("CAIRN.Rolling") + ` ${dataset.label}` : "";
+      const label = dataset.label ? game.i18n.localize("WYRM.Rolling") + ` ${dataset.label}` : "";
       const rolled = roll.terms[0].results[0].result;
-      const result = roll.total === 0 ? game.i18n.localize("CAIRN.Fail") : game.i18n.localize("CAIRN.Success");
+      const result = roll.total === 0 ? game.i18n.localize("WYRM.Fail") : game.i18n.localize("WYRM.Success");
       const resultCls = roll.total === 0 ? "failure" : "success";
       roll.toMessage({
         speaker: ChatMessage.getSpeaker({ actor: this.actor }),
@@ -387,8 +387,8 @@ export class CairnActorSheet extends ActorSheet {
     event.preventDefault();
 
     const confirm = await Dialog.confirm({
-      title: game.i18n.localize("CAIRN.CharacterRegeneratorTitle"),
-      content: `<p>${game.i18n.localize("CAIRN.CharacterRegeneratorConfirm")}</p>`,
+      title: game.i18n.localize("WYRM.CharacterRegeneratorTitle"),
+      content: `<p>${game.i18n.localize("WYRM.CharacterRegeneratorConfirm")}</p>`,
       defaultYes: false,
     });
 
@@ -403,7 +403,7 @@ export class CairnActorSheet extends ActorSheet {
       return [
         {
           class: `regenerate-character-button-${this.actor.id}`,
-          label: game.i18n.localize("CAIRN.RegenerateCharacter"),
+          label: game.i18n.localize("WYRM.RegenerateCharacter"),
           icon: "fas fa-skull",
           onclick: this._onRegenerateCharacter.bind(this),
         },
@@ -423,7 +423,7 @@ export class CairnActorSheet extends ActorSheet {
    */
   async _onDropItem(event, itemData) {
     if (this.actor.isEncumbered()) {
-      ui.notifications.warn(game.i18n.localize("CAIRN.Notify.MaxSlotsOccupied"));
+      ui.notifications.warn(game.i18n.localize("WYRM.Notify.MaxSlotsOccupied"));
       return;
     }
 
@@ -447,7 +447,7 @@ export class CairnActorSheet extends ActorSheet {
     let actor = game.actors.find((a) => a.uuid == data.uuid);
     if (actor.type !== "container") return;
     if (actor.system.keeper != "") {
-      ui.notifications.warn(game.i18n.localize("CAIRN.ContainerAlreadyOwned"));
+      ui.notifications.warn(game.i18n.localize("WYRM.ContainerAlreadyOwned"));
       return;
     }
     if (this.actor.uuid == data.uuid) return;

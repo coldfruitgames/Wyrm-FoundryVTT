@@ -1,4 +1,4 @@
-<form class="cairn" autocomplete="off">
+<form class="wyrm" autocomplete="off">
     <div class="item-sheet-grid spellbook">
         <!-- Portrait -->
         <div class="item-sheet-section-portrait">
@@ -6,11 +6,11 @@
         </div>
         <!-- Name -->
         <div class="item-sheet-section-name">
-            <input class="name-input" type="text" name="name" value="{{data.name}}" placeholder="{{ localize 'CAIRN.Name' }}" />
+            <input class="name-input" type="text" name="name" value="{{data.name}}" placeholder="{{ localize 'WYRM.Name' }}" />
         </div>
         <!-- Equipped -->
         <div class="resource-counter long-counter">
-            <label class="large-resource-label" for="system.equipped">{{ localize 'CAIRN.Equipped' }}</label>
+            <label class="large-resource-label" for="system.equipped">{{ localize 'WYRM.Equipped' }}</label>
             <div class="resource-input-wrapper">
                 <input type="checkbox" {{checked data.system.equipped}} name="system.equipped" id="system.equipped"
                        value="{{data.system.equipped}}" data-dtype="Boolean" {{ disabled (not item.system.isEquipable) }}/>
@@ -20,7 +20,7 @@
 
          <!-- Cost -->
          <div class="resource-counter long-counter">
-            <label class="large-resource-label" for="system.cost.value">{{ localize 'CAIRN.Cost' }}</label>
+            <label class="large-resource-label" for="system.cost.value">{{ localize 'WYRM.Cost' }}</label>
             <div class="resource-input-wrapper">
                 <input type="text" name="system.cost.value" id="system.cost.value"
                     value="{{data.system.cost.value}}" data-dtype="Number" />
@@ -29,7 +29,7 @@
 
         <div class="item-sheet-section-tabs">
             <nav class="tabs" data-group="primary">
-                <a class="item" data-group="primary" data-tab="description">{{ localize 'CAIRN.Description' }}</a>
+                <a class="item" data-group="primary" data-tab="description">{{ localize 'WYRM.Description' }}</a>
             </nav>
             <section class="content">
                 <div class="tab" data-group="primary" data-tab="description">

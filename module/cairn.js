@@ -1,47 +1,47 @@
 // Import Modules
-import { CairnActor } from './actor/actor.js'
-import { CairnActorSheet } from './actor/actor-sheet.js'
-import { CairnItem } from './item/item.js'
-import { CairnItemSheet } from './item/item-sheet.js'
+import { WyrmActor } from './actor/actor.js'
+import { WyrmActorSheet } from './actor/actor-sheet.js'
+import { WyrmItem } from './item/item.js'
+import { WyrmItemSheet } from './item/item-sheet.js'
 import { createCharacter } from './character-generator.js'
 import * as characterGenerator from "./character-generator.js"
-import { Cairn } from './config.js'
-import { CairnCombat } from './combat.js'
-import { createCairnMacro, rollItemMacro } from './macros.js'
+import { Wyrm } from './config.js'
+import { WyrmCombat } from './combat.js'
+import { createWyrmMacro, rollItemMacro } from './macros.js'
 import { Damage } from './damage.js'
 import { registerSettings } from "./settings.js"
 
 Hooks.once('init', async function () {
-  game.cairn = {
-    CairnActor,
-    CairnItem,
-    config: Cairn,
+  game.wyrm = {
+    WyrmActor,
+    WyrmItem,
+    config: Wyrm,
     characterGenerator: characterGenerator,
     rollItemMacro
   }
 
   // Define custom Entity classes
-  CONFIG.Actor.documentClass = CairnActor;
-  CONFIG.Item.documentClass = CairnItem;
+  CONFIG.Actor.documentClass = WyrmActor;
+  CONFIG.Item.documentClass = WyrmItem;
 
   // configure combat
-  CONFIG.Combat.documentClass = CairnCombat;
+  CONFIG.Combat.documentClass = WyrmCombat;
   CONFIG.Combat.initiative = {
     formula: "1d20",
   };
 
   // Register sheet application classes
   Actors.unregisterSheet('core', ActorSheet);
-  Actors.registerSheet('cairn', CairnActorSheet, { makeDefault: true });
+  Actors.registerSheet('wyrm', WyrmActorSheet, { makeDefault: true });
   Items.unregisterSheet('core', ItemSheet);
-  Items.registerSheet('cairn', CairnItemSheet, { makeDefault: true });
+  Items.registerSheet('wyrm', WyrmItemSheet, { makeDefault: true });
 
   registerSettings();
   configureHandleBar();
 });
 
 Hooks.once("ready", () => {
-  Hooks.on("hotbarDrop", (bar, data, slot) => createCairnMacro(data, slot));
+  Hooks.on("hotbarDrop", (bar, data, slot) => createWyrmMacro(data, slot));
 });
 
 Hooks.on("renderActorDirectory", (app, html) => {
@@ -56,7 +56,7 @@ Hooks.on("renderActorDirectory", (app, html) => {
       "afterbegin",
       `
       <div class="header-actions action-buttons flexrow">
-        <button class="create-character-generator-button"><i class="fas fa-skull"></i>${game.i18n.localize("CAIRN.CharacterGenerator")}</button>
+        <button class="create-character-generator-button"><i class="fas fa-skull"></i>${game.i18n.localize("WYRM.CharacterGenerator")}</button>
       </div>
       `
     );
@@ -93,8 +93,8 @@ Hooks.on("renderChatMessage", (message, html, data) => {
 const configureHandleBar = () => {
   // Pre-load templates
   const templatePaths = [
-    "systems/cairn/templates/parts/items-list.html",
-    "systems/cairn/templates/parts/container-list.html",
+    "systems/wyrm/templates/parts/items-list.html",
+    "systems/wyrm/templates/parts/container-list.html",
   ];
 
   loadTemplates(templatePaths);

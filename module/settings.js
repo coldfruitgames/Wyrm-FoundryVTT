@@ -1,7 +1,7 @@
 export const registerSettings = () => {
-    game.settings.register("cairn", "max-equip-slots", {
-        name: game.i18n.localize("CAIRN.Settings.MaxEquipSlots.label"),
-        hint: game.i18n.localize("CAIRN.Settings.MaxEquipSlots.hint"),
+    game.settings.register("wyrm", "max-equip-slots", {
+        name: game.i18n.localize("WYRM.Settings.MaxEquipSlots.label"),
+        hint: game.i18n.localize("WYRM.Settings.MaxEquipSlots.hint"),
         scope: "world",
         config: true,
         type: Number,
@@ -9,9 +9,9 @@ export const registerSettings = () => {
         requiresReload: true,
     });
 
-    game.settings.register("cairn", "use-gold-threshold", {
-        name: game.i18n.localize("CAIRN.Settings.UseGoldThreshold.label"),
-        hint: game.i18n.localize("CAIRN.Settings.UseGoldThreshold.hint"),
+    game.settings.register("wyrm", "use-gold-threshold", {
+        name: game.i18n.localize("WYRM.Settings.UseGoldThreshold.label"),
+        hint: game.i18n.localize("WYRM.Settings.UseGoldThreshold.hint"),
         scope: "world",
         config: true,
         type: Number,
@@ -19,9 +19,9 @@ export const registerSettings = () => {
         requiresReload: true,
     });
 
-    game.settings.register("cairn", "use-panic", {
-        name: game.i18n.localize("CAIRN.Settings.UsePanic.label"),
-        hint: game.i18n.localize("CAIRN.Settings.UsePanic.hint"),
+    game.settings.register("wyrm", "use-panic", {
+        name: game.i18n.localize("WYRM.Settings.UsePanic.label"),
+        hint: game.i18n.localize("WYRM.Settings.UsePanic.hint"),
         scope: "world",
         config: true,
         type: Boolean,
