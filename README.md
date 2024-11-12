@@ -1,8 +1,8 @@
 # Wyrm for FoundryVTT!
 
-Implements basic character and item sheets for playing [Wyrm](https://wyrmrpg.com) by [Yochai Gal](https://newschoolrevolution.com) in Foundry VTT. Wyrm is a mashup of Knave and Into The Odd, meant for Wood Fantasy settings such as Necrotic Gnome's [Dolmenwood](https://necroticgnome.com/collections/dolmenwood).
+Implements basic character and item sheets for playing Wyrm in Foundry VTT. Wyrm is a mashup of many systems, to include Vaults of Vaarn, Cairn, and Knave.
 
-The code is based on the [Electric Bastionland system](https://github.com/mvdleden/electric-bastionland-FoundryVTT/) for FoundryVTT (which in turn is based on the Into the Odd System).
+The code is based on the [Cairn system](https://github.com/yochaigal/Cairn-FoundryVTT) for FoundryVTT (which in turn is based on other sytems).
 
 ## Installation - Auto Installer (Recommended)
 
