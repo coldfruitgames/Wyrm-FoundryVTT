@@ -12,7 +12,7 @@ import { Damage } from './damage.js'
 import { registerSettings } from "./settings.js"
 
 Hooks.once('init', async function () {
-  game.cairn = {
+  game.wyrm = {
     CairnActor,
     CairnItem,
     config: Cairn,
@@ -32,9 +32,9 @@ Hooks.once('init', async function () {
 
   // Register sheet application classes
   Actors.unregisterSheet('core', ActorSheet);
-  Actors.registerSheet('cairn', CairnActorSheet, { makeDefault: true });
+  Actors.registerSheet('wyrm', CairnActorSheet, { makeDefault: true });
   Items.unregisterSheet('core', ItemSheet);
-  Items.registerSheet('cairn', CairnItemSheet, { makeDefault: true });
+  Items.registerSheet('wyrm', CairnItemSheet, { makeDefault: true });
 
   registerSettings();
   configureHandleBar();
@@ -93,8 +93,8 @@ Hooks.on("renderChatMessage", (message, html, data) => {
 const configureHandleBar = () => {
   // Pre-load templates
   const templatePaths = [
-    "systems/cairn/templates/parts/items-list.html",
-    "systems/cairn/templates/parts/container-list.html",
+    "systems/wyrm/templates/parts/items-list.html",
+    "systems/wyrm/templates/parts/container-list.html",
   ];
 
   loadTemplates(templatePaths);
