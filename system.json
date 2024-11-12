@@ -2,23 +2,19 @@
   "id": "wyrm",
   "title": "Wyrm",
   "description": "Wyrm for FoundryVTT",
-  "version": "0.14",
+  "version": "0.1",
   "compatibility": {
     "minimum": "12",
     "verified": "12.327"
   },
   "license": "LICENSE.txt",
-  "url": "https://github.com/yochaigal/Wyrm-FoundryVTT/",
-  "manifest": "https://github.com/yochaigal/Wyrm-FoundryVTT/releases/latest/download/system.json",
-  "download": "https://github.com/yochaigal/Wyrm-FoundryVTT/releases/latest/download/system.zip",
+  "url": "https://github.com/coldfruitgames/Wyrm-FoundryVTT",
+  "manifest": "https://raw.githubusercontent.com/coldfruitgames/Wyrm-FoundryVTT/refs/heads/master/system.json",
+  "download": "https://github.com/coldfruitgames/Wyrm-FoundryVTT/archive/refs/tags/0.1.zip",
   "authors": [
     {
-      "name": "yochaigal",
-      "url": "https://yochaigal.itch.io/"
-    },
-    {
-      "name": "Oskar Świda",
-      "url": "https://github.com/oswida"
+      "name": "alteredspate",
+      "discord": "alteredspate"
     }
   ],
   "esmodules": [
