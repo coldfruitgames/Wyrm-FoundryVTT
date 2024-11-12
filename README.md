@@ -1,6 +1,6 @@
 # Cairn for FoundryVTT!
 
-Implements basic character and item sheets for playing [Cairn](https://wyrmrpg.com) by [Yochai Gal](https://newschoolrevolution.com) in Foundry VTT. Cairn is a mashup of Knave and Into The Odd, meant for Wood Fantasy settings such as Necrotic Gnome's [Dolmenwood](https://necroticgnome.com/collections/dolmenwood).
+Implements basic character and item sheets for playing [Cairn](https://cairnrpg.com) by [Yochai Gal](https://newschoolrevolution.com) in Foundry VTT. Cairn is a mashup of Knave and Into The Odd, meant for Wood Fantasy settings such as Necrotic Gnome's [Dolmenwood](https://necroticgnome.com/collections/dolmenwood).
 
 The code is based on the [Electric Bastionland system](https://github.com/mvdleden/electric-bastionland-FoundryVTT/) for FoundryVTT (which in turn is based on the Into the Odd System).
 
@@ -32,4 +32,4 @@ The code is based on the [Electric Bastionland system](https://github.com/mvdled
 
 If you want to contribute to this sheet, you'll need to clone this repository in the `systems` directory in Foundry VTT data path.
 
-Please note that the directory needs to be named `wyrm` in order to be properly detected by Foundry VTT (i.e. it needs to look like `Data\systems\wyrm`).
+Please note that the directory needs to be named `cairn` in order to be properly detected by Foundry VTT (i.e. it needs to look like `Data\systems\cairn`).

@@ -8,38 +8,38 @@ Cairn.characterGenerator = {
   name: {
     text: "{name} {surname}",
     items: {
-      name: "wyrm.character-creation-tables-srd;Names",
-      surname: "wyrm.character-traits;Surnames"
+      name: "cairn.character-creation-tables-srd;Names",
+      surname: "cairn.character-traits;Surnames"
     }
   },
-  background: "wyrm.character-traits;Background",
+  background: "cairn.character-traits;Background",
   startingItems: [
-    "wyrm.expeditionary-gear;Rations;1",
-    "wyrm.expeditionary-gear;Torch;1"
+    "cairn.expeditionary-gear;Rations;1",
+    "cairn.expeditionary-gear;Torch;1"
   ],
   startingGear: [
-    "wyrm.character-creation-tables-srd;Starting Gear - Armor",
-    "wyrm.character-creation-tables-srd;Starting Gear - Helmet & Shields",
-    "wyrm.character-creation-tables-srd;Starting Gear - Weapons",
-    "wyrm.character-creation-tables-srd;Starting Gear - Expeditionary Gear",
-    "wyrm.character-creation-tables-srd;Starting Gear - Tools",
-    "wyrm.character-creation-tables-srd;Starting Gear - Trinkets",
-    "wyrm.character-creation-tables-srd;Starting Gear - Bonus Item"
+    "cairn.character-creation-tables-srd;Starting Gear - Armor",
+    "cairn.character-creation-tables-srd;Starting Gear - Helmet & Shields",
+    "cairn.character-creation-tables-srd;Starting Gear - Weapons",
+    "cairn.character-creation-tables-srd;Starting Gear - Expeditionary Gear",
+    "cairn.character-creation-tables-srd;Starting Gear - Tools",
+    "cairn.character-creation-tables-srd;Starting Gear - Trinkets",
+    "cairn.character-creation-tables-srd;Starting Gear - Bonus Item"
   ],
   biography: {
     text: "I have a <strong>{physique}</strong> physique, <strong>{skin}</strong> skin, <strong>{hair}</strong> hair, and a <strong>{face}</strong> face. I speak in a <strong>{speech}</strong> manner and wear <strong>{clothing}</strong> clothing. I am <strong>{vice}</strong> yet <strong>{virtue}</strong>, and I am generally regarded as <strong>{reputation}</strong>. I have had the misfortune of being <strong>{misfortune}</strong>. I am <strong>{age}</strong> years old.",
     age: "2d20 + 10",
     items: {
-      physique: "wyrm.character-traits;Physique",
-      skin: "wyrm.character-traits;Skin",
-      hair: "wyrm.character-traits;Hair",
-      face: "wyrm.character-traits;Face",
-      speech: "wyrm.character-traits;Speech",
-      clothing: "wyrm.character-traits;Clothing",
-      vice: "wyrm.character-traits;Vice",
-      virtue: "wyrm.character-traits;Virtue",
-      misfortune: "wyrm.character-traits;Misfortunes",
-      reputation: "wyrm.character-traits;Reputation"
+      physique: "cairn.character-traits;Physique",
+      skin: "cairn.character-traits;Skin",
+      hair: "cairn.character-traits;Hair",
+      face: "cairn.character-traits;Face",
+      speech: "cairn.character-traits;Speech",
+      clothing: "cairn.character-traits;Clothing",
+      vice: "cairn.character-traits;Vice",
+      virtue: "cairn.character-traits;Virtue",
+      misfortune: "cairn.character-traits;Misfortunes",
+      reputation: "cairn.character-traits;Reputation"
     }
   }
 };

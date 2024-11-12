@@ -45,7 +45,7 @@ export class CairnActor extends Actor {
 		}
 		this.system.containerObjects = this.system.containers.map((it) => game.actors.find((a) => a.uuid == it));
 
-		const gct = game.settings.get("wyrm", "use-gold-threshold");
+		const gct = game.settings.get("cairn", "use-gold-threshold");
 		this.system.hasGoldThreshold = gct > 0;
 		if (this.system.hasGoldThreshold > 0 && this.system.gold) {
 			this.system.goldSlots = Math.floor(this.system.gold / gct);
@@ -55,7 +55,7 @@ export class CairnActor extends Actor {
 			this.system.hp.value = 0;
 		}
 
-		this.system.usePanic = game.settings.get("wyrm", "use-panic") > 0;
+		this.system.usePanic = game.settings.get("cairn", "use-panic") > 0;
 		if (this.system.usePanic && this.system.panicked) {
 			this.system.hp.value = 0;
 		}
@@ -147,7 +147,7 @@ export class CairnActor extends Actor {
 
 	calcSlotsUsed() {
 		let totalSlots = this.items.reduce((memo, item) => memo + ((item.system.bulky ?? false) ? 2 : (item.system.weightless ?? false) ? 0 : 1), 0);
-		const goldThreshold = game.settings.get("wyrm", "use-gold-threshold");
+		const goldThreshold = game.settings.get("cairn", "use-gold-threshold");
 		if (goldThreshold > 0 && this.system.gold) {
 			totalSlots += Math.floor(this.system.gold / goldThreshold);
 		};
@@ -166,7 +166,7 @@ export class CairnActor extends Actor {
 
 	calcCurrentMaxSlots() {
 		if (["npc", "container"].includes(this.type) && this.system.slots && this.system.slots.value > 0) return this.system.slots.value;
-		return game.settings.get("wyrm", "max-equip-slots");
+		return game.settings.get("cairn", "max-equip-slots");
 	}
 
 	isEncumbered() {

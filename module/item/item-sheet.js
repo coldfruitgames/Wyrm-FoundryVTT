@@ -6,7 +6,7 @@ export class CairnItemSheet extends ItemSheet {
   /** @override */
   static get defaultOptions() {
     return foundry.utils.mergeObject(super.defaultOptions, {
-      classes: ['wyrm', 'sheet', 'item'],
+      classes: ['cairn', 'sheet', 'item'],
       width: 480,
       height: 480,
       tabs: [
@@ -21,7 +21,7 @@ export class CairnItemSheet extends ItemSheet {
 
   /** @override */
   get template() {
-    const path = 'systems/wyrm/templates/item'
+    const path = 'systems/cairn/templates/item'
     return `${path}/${this.item.type}-sheet.html`
   }
 

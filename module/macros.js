@@ -20,7 +20,7 @@ export const createCairnMacro = async (data, slot) => {
     return ui.notifications.warn("Macros only supported for weapons");
   }
 
-  const command = `game.wyrm.rollItemMacro("${actor.id}", "${item.id}");`;
+  const command = `game.cairn.rollItemMacro("${actor.id}", "${item.id}");`;
   let macro = game.macros.find((m) => m.name === item.name && m.command === command);
   if (!macro) {
     macro = await Macro.create({
@@ -28,7 +28,7 @@ export const createCairnMacro = async (data, slot) => {
       type: "script",
       img: item.img,
       command,
-      flags: { "wyrm.itemMacro": true },
+      flags: { "cairn.itemMacro": true },
     });
   }
   game.user.assignHotbarMacro(macro, slot);

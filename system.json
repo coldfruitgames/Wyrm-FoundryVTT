@@ -1,5 +1,5 @@
 {
-  "id": "wyrm",
+  "id": "cairn",
   "title": "Cairn",
   "description": "Cairn for FoundryVTT",
   "version": "0.14",
@@ -22,10 +22,10 @@
     }
   ],
   "esmodules": [
-    "module/wyrm.js"
+    "module/cairn.js"
   ],
   "styles": [
-    "css/wyrm.css"
+    "css/cairn.css"
   ],
   "packs": [
     {
@@ -33,91 +33,91 @@
       "label": "Armor",
       "path": "packs/armor.db",
       "type": "Item",
-      "system": "wyrm"
+      "system": "cairn"
     },
     {
       "name": "character-traits",
       "label": "Character Traits",
       "path": "packs/character-traits.db",
       "type": "RollTable",
-      "system": "wyrm"
+      "system": "cairn"
     },
     {
       "name": "expeditionary-gear",
       "label": "Expeditionary Gear",
       "path": "packs/expeditionary-gear.db",
       "type": "Item",
-      "system": "wyrm"
+      "system": "cairn"
     },
     {
       "name": "extra",
       "label": "Extra",
       "path": "packs/extra.db",
       "type": "Item",
-      "system": "wyrm"
+      "system": "cairn"
     },
     {
       "name": "gear-tables",
       "label": "Gear Tables",
       "path": "packs/gear-tables.db",
       "type": "RollTable",
-      "system": "wyrm"
+      "system": "cairn"
     },
     {
       "name": "character-creation-tables-srd",
       "label": "Character Creation Tables - SRD",
       "path": "packs/character-creation-tables-srd.db",
       "type": "RollTable",
-      "system": "wyrm"
+      "system": "cairn"
     },
     {
       "name": "utils",
       "label": "Utils",
       "path": "packs/utils.db",
       "type": "RollTable",
-      "system": "wyrm"
+      "system": "cairn"
     },
     {
       "name": "monsters",
       "label": "Monsters",
       "path": "packs/monsters.db",
       "type": "Actor",
-      "system": "wyrm"
+      "system": "cairn"
     },
     {
       "name": "spellbooks",
       "label": "Spellbooks",
       "path": "packs/spellbooks.db",
       "type": "Item",
-      "system": "wyrm"
+      "system": "cairn"
     },
     {
       "name": "more-spellbooks",
       "label": "More Spellbooks",
       "path": "packs/more-spellbooks.db",
       "type": "Item",
-      "system": "wyrm"
+      "system": "cairn"
     },
     {
       "name": "tools",
       "label": "Tools",
       "path": "packs/tools.db",
       "type": "Item",
-      "system": "wyrm"
+      "system": "cairn"
     },
     {
       "name": "trinkets",
       "label": "Trinkets",
       "path": "packs/trinkets.db",
       "type": "Item",
-      "system": "wyrm"
+      "system": "cairn"
     },
     {
       "name": "weapons",
       "label": "Weapons",
       "path": "packs/weapons.db",
       "type": "Item",
-      "system": "wyrm"
+      "system": "cairn"
     }
   ],
   "packFolders": [

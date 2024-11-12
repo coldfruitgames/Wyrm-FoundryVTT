@@ -19,18 +19,18 @@
  * General style.                                                             * 
  ******************************************************************************/
 
-.wyrm.sheet.actor,
-.wyrm.sheet.item {
+.cairn.sheet.actor,
+.cairn.sheet.item {
     min-height: 480px;
     min-width: 480px;
 }
 
-.wyrm .window-content {
+.cairn .window-content {
     background-color: #f5f5f5;
     background-image: none;
 }
 
-.wyrm .editor {
+.cairn .editor {
     height: 100%;
 }
 
@@ -325,11 +325,11 @@
  * Tabs.                                                                      * 
  ******************************************************************************/
 
-.wyrm .tabs {
+.cairn .tabs {
     display: flex;
 }
 
-.wyrm .tabs a {
+.cairn .tabs a {
     border-bottom: 2px solid black;
     border-top: 2px solid black;
     flex-grow: 1;
@@ -339,7 +339,7 @@
     line-height: 32px;
 }
 
-.wyrm .tab {
+.cairn .tab {
     height: 100%;
 }
 
@@ -347,7 +347,7 @@
  * Items list.                                                                * 
  ******************************************************************************/
 
-.wyrm-items-list-header {
+.cairn-items-list-header {
     border-bottom: 1px solid #b5b3a4;
     display: flex;
     font-family: "Alegreya", Times, "Times New Roman", Georgia, serif !important;
@@ -357,27 +357,27 @@
     height: 36px;
 }
 
-.wyrm-items-list-header .end {
+.cairn-items-list-header .end {
     margin-left: auto;
 }
 
-.wyrm-items-list-row {
+.cairn-items-list-row {
     border-bottom: 1px solid #b5b3a4;
 }
 
-.wyrm-items-list-row-header {
+.cairn-items-list-row-header {
     display: flex;
     justify-content: space-between;
 }
 
-.wyrm-item-name-and-tags {
+.cairn-item-name-and-tags {
     display: flex;
     line-height: 26px;
     height: 26px;
     gap: 4px;
 }
 
-.wyrm-item-tag {
+.cairn-item-tag {
     align-self: center;
     background: rgba(0, 0, 0, 0.05);
     border: 1px solid #999;
@@ -389,22 +389,22 @@
     height: 18px;
 }
 
-.wyrm-item-uses i {
+.cairn-item-uses i {
     font-size: 10px;
 }
 
-.wyrm-item-controls {
+.cairn-item-controls {
     display: flex;
     height: 26px;
 }
 
-.wyrm-item-controls a {
+.cairn-item-controls a {
     text-align: center;
     width: 18px;
 }
 
-.wyrm-item-name-and-tags .fas,
-.wyrm-item-controls .fas {
+.cairn-item-name-and-tags .fas,
+.cairn-item-controls .fas {
     line-height: 26px;
 }
 
